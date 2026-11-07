@@ -1,0 +1,11 @@
+FOREGROUND FRACTION HISTOGRAM
+n_samples=2000, crop_size=512, seed=0
+
+Bucket | Count | %
+0% (empty): 474 (23.7%)
+0–1% (trace): 834 (41.7%)
+1–5% (sparse): 672 (33.6%)
+5–20% (moderate): 20 (1.0%)
+>20% (dense): 0 (0.0%)
+
+Mean: 0.92% | Median: 0.60% | Std: 1.10%

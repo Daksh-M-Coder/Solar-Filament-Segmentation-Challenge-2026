@@ -1,0 +1,23 @@
+Total FPs found across 115 images: 346
+Top-20 saved:
+
+Rank  1 | area=  6456 | best_iou=0.451 | file=20120205172414Mh.jpeg
+Rank  2 | area=  6114 | best_iou=0.492 | file=20130901073614Th.jpeg
+Rank  3 | area=  6065 | best_iou=0.377 | file=20150806082034Lh.jpeg
+Rank  4 | area=  5680 | best_iou=0.340 | file=20150113105034Ch.jpeg
+Rank  5 | area=  5238 | best_iou=0.363 | file=20130107174854Bh.jpeg
+Rank  6 | area=  5238 | best_iou=0.372 | file=20130107174854Bh.jpeg
+Rank  7 | area=  5201 | best_iou=0.459 | file=20161205133714Th.jpeg
+Rank  8 | area=  5082 | best_iou=0.499 | file=20141010195834Ch.jpeg
+Rank  9 | area=  4908 | best_iou=0.000 | file=20170503013050Uh.jpeg
+Rank 10 | area=  4893 | best_iou=0.376 | file=20121027165114Mh.jpeg
+Rank 11 | area=  4779 | best_iou=0.331 | file=20131017185334Ch.jpeg
+Rank 12 | area=  4654 | best_iou=0.364 | file=20130901073614Th.jpeg
+Rank 13 | area=  4546 | best_iou=0.000 | file=20171022170710Mh.jpeg
+Rank 14 | area=  4037 | best_iou=0.000 | file=20130107174854Bh.jpeg
+Rank 15 | area=  3828 | best_iou=0.229 | file=20121027165114Mh.jpeg
+Rank 16 | area=  3738 | best_iou=0.000 | file=20170503013050Uh.jpeg
+Rank 17 | area=  3730 | best_iou=0.300 | file=20120205172414Mh.jpeg
+Rank 18 | area=  3680 | best_iou=0.392 | file=20160129225334Lh.jpeg
+Rank 19 | area=  3460 | best_iou=0.254 | file=20131006075314Th.jpeg
+Rank 20 | area=  3295 | best_iou=0.000 | file=20171005133730Ch.jpeg
