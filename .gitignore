@@ -1,0 +1,20 @@
+# Pause / in-progress state
+Pause.md
+
+# Data directory
+data/
+
+# Model checkpoints: keep only the winning model (unet_cldice_v2_best.pth)
+models/*
+!models/unet_cldice_v2_best.pth
+
+# Submissions: keep only the best submission (submission_cldice_th050.csv)
+submissions/*
+!submissions/submission_cldice_th050.csv
+
+# Python / Environment / Caches / Logs
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+*.log
