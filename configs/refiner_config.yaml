@@ -1,0 +1,31 @@
+project:
+  name: "solar-filament-unet-refiner"
+  seed: 42
+  device: "cuda"
+
+paths:
+  refiner_data_dir: "data/refiner_training_data"
+  crops_dir: "data/refiner_training_data/crops"
+  rough_masks_dir: "data/refiner_training_data/rough_masks"
+  gt_masks_dir: "data/refiner_training_data/gt_masks"
+  detector_weights: "models/best_model.pth"
+  refiner_best_path: "models/refiner_best.pth"
+
+model:
+  name: "UNetRefiner"
+  backbone: "resnet18"
+  in_channels: 2
+  out_channels: 1
+  crop_size: [256, 256]
+  margin: 0.20
+
+training:
+  epochs: 30
+  batch_size: 8
+  lr: 0.0001
+  weight_decay: 0.0005
+  val_split: 0.15
+  loss: "bce_dice_compound"
+
+refinement:
+  binary_threshold: 0.50

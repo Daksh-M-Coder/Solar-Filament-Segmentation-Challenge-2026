@@ -1,0 +1,57 @@
+project:
+  name: solar-filament-unet
+  seed: 42
+  device: cuda
+paths:
+  train_images_dir: data/MAGFiLO_1.0_Kaggle_2026/train/train_images
+  train_annotations: data/MAGFiLO_1.0_Kaggle_2026/train/MAGFiLO_1.0_Annotations_kaggle2026_train.json
+  test_images_dir: data/MAGFiLO_1.0_Kaggle_2026/test/test_images
+  models_dir: models
+  best_model_path: models/unet_best.pth
+  submissions_dir: submissions
+model:
+  type: unet_resnet34
+  pretrained: true
+  in_channels: 1
+  out_channels: 1
+  deep_supervision: true
+  secondary_head: true_spine
+data:
+  crop_size: 512
+  batch_size: 4
+  num_workers: 2
+  spine_dilation: 3
+  mean: 0.449
+  std: 0.226
+training:
+  epochs: 60
+  enc_lr: 0.0001
+  dec_lr: 0.0003
+  weight_decay: 0.0005
+  val_interval: 5
+  grad_clip: 5.0
+  amp: true
+  scheduler: cosine
+  t_max: 60
+  min_lr: 1.0e-06
+  ohem_bg_ratio: 0.3
+postprocessing:
+  thresh: 0.5
+  min_area: 300
+  peak_min_dist: 20
+  morph_kernel_size: 5
+  dist_transform_type: DIST_L2
+  skel_prune_len: 10
+  tip_recovery: option_a
+inference:
+  tile_size: 512
+  overlap: 64
+  use_tta: false
+production:
+  peak_min_distance: 55
+  prune_threshold: 15
+  score_threshold: 0.45
+  kernel_size: 3
+  dist_transform: DIST_L1
+  min_area: 300
+  best_local_pq: 0.416223134223919

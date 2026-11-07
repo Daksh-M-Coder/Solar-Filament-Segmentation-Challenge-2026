@@ -1,0 +1,51 @@
+# Solar Filament Segmentation Configuration
+# Updated for 50-epoch retraining run (Task 3)
+
+project:
+  name: "solar-filament-segmentation"
+  seed: 42
+  device: "cuda" # "cuda" or "cpu"
+
+paths:
+  dataset_root: "data/combined_train_v6"
+  train_images_dir: "data/combined_train_v6/images"
+  train_annotations: "data/combined_train_v6/annotations.json"
+  test_images_dir: "data/MAGFiLO_1.0_Kaggle_2026/test/test_images"
+  logs_dir: "logs"
+  models_dir: "models"
+  best_model_path: "models/best_model.pth"
+  submissions_dir: "submissions"
+  submission_file: "submissions/submission_v7_th0.75.csv"
+
+data:
+  crop_size: [512, 512]
+  full_size: [2048, 2048]
+  in_channels: 3
+  num_classes: 2 # background + filament
+  val_split: 0.10  # 10% held out for local PQ evaluation (never trained on)
+  batch_size: 2
+  num_workers: 2
+
+model:
+  type: "mask_rcnn" # Mask R-CNN for Panoptic/Instance Segmentation
+  backbone: "resnet50_fpn"
+  pretrained: true
+  box_nms_thresh: 0.5
+
+training:
+  epochs: 75
+  lr: 0.0001       # Reduced from 0.001 for fine-tuning
+  weight_decay: 0.0005
+  scheduler: cosine
+  T_max: 75         # Cosine schedule over all 75 epochs
+  step_size: 10
+  gamma: 0.1
+
+postprocessing:
+  score_threshold: 0.30
+  mask_threshold: 0.5
+  remove_overlaps: true
+  box_nms_thresh: 0.5
+
+inference:
+  batch_size: 1
