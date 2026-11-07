@@ -1,0 +1,18 @@
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{subcaption}
+\usepackage{hyperref}
+
+% Ensure Figure names render reliably
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+
+% Guide styling macro
+\newif\ifguideStyle
+\newcommand{\guide}[1]{\ifguideStyle{\color{gray!65}\itshape #1}\fi}
+
+
