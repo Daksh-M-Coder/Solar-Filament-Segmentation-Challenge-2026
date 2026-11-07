@@ -1,0 +1,49 @@
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> .\py_gpu.bat -m src.diagnostic_borderline_variance
+============================================================
+=== TASK 1: BORDERLINE-PIXEL VARIANCE DIAGNOSTIC ===
+============================================================
+Device: cuda | Model: models/unet_best.pth | Images: 20
+Evaluating Borderline Variance: 100%|█████████████████████████████████████████████████| 20/20 [01:03<00:00,  3.19s/it]
+
+============================================================
+TASK 1 SUMMARY & FINDINGS:
+============================================================
+Total Pixels Evaluated                  : 131,072,000
+Total Borderline Pixels ([0.35, 0.55])   : 55,773 (0.043% of total pixels)
+Mean Borderline Variance                : 0.11617
+Max Borderline Variance                 : 0.23479
+Borderline Pixels with Variance > 0.02  : 55,293 (99.14%)
+Borderline Pixels with Variance > 0.05  : 52,500 (94.13%)
+Conclusion: Borderline variance is meaningfully active and concentrated on filament edges! TTA works by stabilizing ambiguous contour boundaries.
+============================================================
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> .\py_gpu.bat -m src.eval_prob_avg_th50
+============================================================
+=== TASK 2: TEST PROB_AVG TTA AT THRESHOLD 0.50 (115 POOL) ===
+============================================================
+Evaluating prob_avg th=0.50: 100%|██████████████████████████████████████████████████| 115/115 [09:23<00:00,  4.90s/it]
+
+============================================================
+TASK 2 RESULTS:
+============================================================
+Local PQ at th=0.50 : 0.4100 (TP=496, FP=343, FN=273)
+Local PQ at th=0.45 : 0.4154 (TP=510, FP=346, FN=259)
+Delta (0.50 - 0.45) : -0.0054
+Winner: th=0.45 remains best locally! (Keep current 0.34 submission)
+============================================================
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> .\py_gpu.bat -m src.audit_maskrcnn_115
+============================================================
+=== TASK 3: AUDIT MASK R-CNN ON 115 HELD-OUT POOL ===
+============================================================
+Loading Mask R-CNN from: models/best_model.pth
+Validation pool: 115 images | Device: cuda | Score Thresh: 0.5
+Evaluating Mask R-CNN: 100%|████████████████████████████████████████████████████████| 115/115 [10:08<00:00,  5.29s/it]
+
+============================================================
+TASK 3 SUMMARY & COMPARISON (115 POOL):
+============================================================
+Mask R-CNN Strict PQ      : 0.2984 (TP=397, FP=657, FN=372)
+U-Net prob_avg TTA PQ     : 0.4154 (TP=510, FP=346, FN=259)
+Delta (U-Net - Mask RCNN) : +0.1170
+Decision Rule Assessment : Marginal candidate (PQ 0.25 - 0.30). Test with conservative weighting in Stage 2.
+============================================================
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> 

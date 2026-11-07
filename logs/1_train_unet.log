@@ -1,0 +1,103 @@
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> .\py_gpu.bat -m src.unet_train --epochs 60 --batch_size 4 --enc_lr 1e-4 --dec_lr 3e-4 --val_interval 5
+=== TRAINING U-NET PIPELINE (PLAN A) ===
+Device: cuda | Epochs: 60 | Batch: 4
+Encoder LR: 0.0001 | Decoder/Heads LR: 0.0003
+Train images: 1039 | Validation images: 115
+C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament\src\unet_train.py:85: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament\src\unet_train.py:102: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+Epoch [01/60] | Loss: 1.0000 | FG OHEM Frac: 0.029 | LR: 3.00e-04 | Time: 402.3s
+Epoch [02/60] | Loss: 0.6535 | FG OHEM Frac: 0.029 | LR: 2.99e-04 | Time: 340.9s
+Epoch [03/60] | Loss: 0.4811 | FG OHEM Frac: 0.031 | LR: 2.98e-04 | Time: 271.7s
+Epoch [04/60] | Loss: 0.4290 | FG OHEM Frac: 0.031 | LR: 2.97e-04 | Time: 258.1s
+Epoch [05/60] | Loss: 0.4112 | FG OHEM Frac: 0.029 | LR: 2.95e-04 | Time: 269.9s
+--- Running Strict PQ Validation on 20 held-out images ---
+Val PQ: 0.2401 (TP=77, FP=209, FN=85)
+--> Saved new best checkpoint to models\unet_best.pth (PQ: 0.2401)
+C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament\src\unet_train.py:102: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+Epoch [06/60] | Loss: 0.4083 | FG OHEM Frac: 0.030 | LR: 2.93e-04 | Time: 269.7s
+Epoch [07/60] | Loss: 0.4062 | FG OHEM Frac: 0.030 | LR: 2.90e-04 | Time: 261.9s
+Epoch [08/60] | Loss: 0.3913 | FG OHEM Frac: 0.029 | LR: 2.87e-04 | Time: 275.0s
+Epoch [09/60] | Loss: 0.3948 | FG OHEM Frac: 0.030 | LR: 2.84e-04 | Time: 324.2s
+Epoch [10/60] | Loss: 0.3782 | FG OHEM Frac: 0.030 | LR: 2.80e-04 | Time: 304.7s
+--- Running Strict PQ Validation on 20 held-out images ---
+Val PQ: 0.2607 (TP=83, FP=216, FN=79)
+--> Saved new best checkpoint to models\unet_best.pth (PQ: 0.2607)
+Epoch [11/60] | Loss: 0.3852 | FG OHEM Frac: 0.030 | LR: 2.76e-04 | Time: 309.0s
+Epoch [12/60] | Loss: 0.3847 | FG OHEM Frac: 0.029 | LR: 2.71e-04 | Time: 282.6s
+Epoch [13/60] | Loss: 0.3754 | FG OHEM Frac: 0.030 | LR: 2.67e-04 | Time: 265.0s
+Epoch [14/60] | Loss: 0.3767 | FG OHEM Frac: 0.029 | LR: 2.62e-04 | Time: 260.8s
+Epoch [15/60] | Loss: 0.3782 | FG OHEM Frac: 0.029 | LR: 2.56e-04 | Time: 240.5s
+--- Running Strict PQ Validation on 20 held-out images ---
+Val PQ: 0.2752 (TP=78, FP=180, FN=84)
+--> Saved new best checkpoint to models\unet_best.pth (PQ: 0.2752)
+Epoch [16/60] | Loss: 0.3819 | FG OHEM Frac: 0.030 | LR: 2.51e-04 | Time: 256.3s
+Epoch [17/60] | Loss: 0.3740 | FG OHEM Frac: 0.029 | LR: 2.45e-04 | Time: 256.0s
+Epoch [18/60] | Loss: 0.3683 | FG OHEM Frac: 0.030 | LR: 2.38e-04 | Time: 244.4s
+Epoch [19/60] | Loss: 0.3676 | FG OHEM Frac: 0.030 | LR: 2.32e-04 | Time: 253.6s
+Epoch [20/60] | Loss: 0.3650 | FG OHEM Frac: 0.029 | LR: 2.25e-04 | Time: 236.9s
+--- Running Strict PQ Validation on 20 held-out images ---
+Val PQ: 0.2711 (TP=74, FP=172, FN=88)
+Epoch [21/60] | Loss: 0.3738 | FG OHEM Frac: 0.030 | LR: 2.18e-04 | Time: 249.5s
+Epoch [22/60] | Loss: 0.3631 | FG OHEM Frac: 0.028 | LR: 2.11e-04 | Time: 257.1s
+Epoch [23/60] | Loss: 0.3692 | FG OHEM Frac: 0.030 | LR: 2.04e-04 | Time: 242.6s
+Epoch [24/60] | Loss: 0.3620 | FG OHEM Frac: 0.030 | LR: 1.97e-04 | Time: 240.3s
+Epoch [25/60] | Loss: 0.3676 | FG OHEM Frac: 0.031 | LR: 1.89e-04 | Time: 245.7s
+--- Running Strict PQ Validation on 20 held-out images ---
+Val PQ: 0.2801 (TP=83, FP=174, FN=79)
+--> Saved new best checkpoint to models\unet_best.pth (PQ: 0.2801)
+Epoch [26/60] | Loss: 0.3652 | FG OHEM Frac: 0.030 | LR: 1.82e-04 | Time: 246.8s
+Epoch [27/60] | Loss: 0.3599 | FG OHEM Frac: 0.029 | LR: 1.74e-04 | Time: 242.5s
+Epoch [28/60] | Loss: 0.3645 | FG OHEM Frac: 0.030 | LR: 1.66e-04 | Time: 237.2s
+Epoch [29/60] | Loss: 0.3597 | FG OHEM Frac: 0.031 | LR: 1.58e-04 | Time: 240.9s
+Epoch [30/60] | Loss: 0.3557 | FG OHEM Frac: 0.031 | LR: 1.51e-04 | Time: 238.5s
+--- Running Strict PQ Validation on 20 held-out images ---
+Val PQ: 0.2794 (TP=81, FP=183, FN=81)
+Epoch [31/60] | Loss: 0.3545 | FG OHEM Frac: 0.029 | LR: 1.43e-04 | Time: 238.5s
+Epoch [32/60] | Loss: 0.3655 | FG OHEM Frac: 0.029 | LR: 1.35e-04 | Time: 240.8s
+Epoch [33/60] | Loss: 0.3616 | FG OHEM Frac: 0.029 | LR: 1.27e-04 | Time: 244.3s
+Epoch [34/60] | Loss: 0.3595 | FG OHEM Frac: 0.029 | LR: 1.19e-04 | Time: 245.6s
+Epoch [35/60] | Loss: 0.3500 | FG OHEM Frac: 0.029 | LR: 1.12e-04 | Time: 237.8s
+--- Running Strict PQ Validation on 20 held-out images ---
+Val PQ: 0.2899 (TP=88, FP=193, FN=74)
+--> Saved new best checkpoint to models\unet_best.pth (PQ: 0.2899)
+Epoch [36/60] | Loss: 0.3515 | FG OHEM Frac: 0.029 | LR: 1.04e-04 | Time: 240.4s
+Epoch [37/60] | Loss: 0.3478 | FG OHEM Frac: 0.031 | LR: 9.69e-05 | Time: 246.0s
+Epoch [38/60] | Loss: 0.3505 | FG OHEM Frac: 0.029 | LR: 8.97e-05 | Time: 242.9s
+Epoch [39/60] | Loss: 0.3516 | FG OHEM Frac: 0.030 | LR: 8.26e-05 | Time: 240.8s
+Epoch [40/60] | Loss: 0.3479 | FG OHEM Frac: 0.030 | LR: 7.58e-05 | Time: 240.1s
+--- Running Strict PQ Validation on 20 held-out images ---
+Val PQ: 0.2882 (TP=83, FP=171, FN=79)
+Epoch [41/60] | Loss: 0.3477 | FG OHEM Frac: 0.030 | LR: 6.91e-05 | Time: 237.4s
+Epoch [42/60] | Loss: 0.3502 | FG OHEM Frac: 0.029 | LR: 6.26e-05 | Time: 702.6s
+Epoch [43/60] | Loss: 0.3482 | FG OHEM Frac: 0.030 | LR: 5.64e-05 | Time: 1868.1s
+Epoch [44/60] | Loss: 0.3517 | FG OHEM Frac: 0.029 | LR: 5.05e-05 | Time: 1694.9s
+Epoch [45/60] | Loss: 0.3480 | FG OHEM Frac: 0.028 | LR: 4.48e-05 | Time: 1739.9s
+--- Running Strict PQ Validation on 20 held-out images ---
+Val PQ: 0.2938 (TP=81, FP=164, FN=81)
+--> Saved new best checkpoint to models\unet_best.pth (PQ: 0.2938)
+Epoch [46/60] | Loss: 0.3455 | FG OHEM Frac: 0.030 | LR: 3.94e-05 | Time: 300.0s
+Epoch [47/60] | Loss: 0.3434 | FG OHEM Frac: 0.030 | LR: 3.43e-05 | Time: 242.7s
+Epoch [48/60] | Loss: 0.3424 | FG OHEM Frac: 0.029 | LR: 2.96e-05 | Time: 265.6s
+Epoch [49/60] | Loss: 0.3414 | FG OHEM Frac: 0.031 | LR: 2.51e-05 | Time: 213.3s
+Epoch [50/60] | Loss: 0.3468 | FG OHEM Frac: 0.030 | LR: 2.10e-05 | Time: 253.0s
+--- Running Strict PQ Validation on 20 held-out images ---
+Val PQ: 0.2805 (TP=80, FP=176, FN=82)
+Epoch [51/60] | Loss: 0.3440 | FG OHEM Frac: 0.031 | LR: 1.73e-05 | Time: 250.9s
+Epoch [52/60] | Loss: 0.3411 | FG OHEM Frac: 0.030 | LR: 1.39e-05 | Time: 237.1s
+Epoch [53/60] | Loss: 0.3472 | FG OHEM Frac: 0.031 | LR: 1.09e-05 | Time: 248.6s
+Epoch [54/60] | Loss: 0.3468 | FG OHEM Frac: 0.030 | LR: 8.32e-06 | Time: 251.6s
+Epoch [55/60] | Loss: 0.3441 | FG OHEM Frac: 0.030 | LR: 6.09e-06 | Time: 241.3s
+--- Running Strict PQ Validation on 20 held-out images ---
+Val PQ: 0.2810 (TP=81, FP=190, FN=81)
+Epoch [56/60] | Loss: 0.3470 | FG OHEM Frac: 0.031 | LR: 4.27e-06 | Time: 244.0s
+Epoch [57/60] | Loss: 0.3459 | FG OHEM Frac: 0.028 | LR: 2.84e-06 | Time: 242.2s
+Epoch [58/60] | Loss: 0.3400 | FG OHEM Frac: 0.029 | LR: 1.82e-06 | Time: 238.2s
+Epoch [59/60] | Loss: 0.3453 | FG OHEM Frac: 0.029 | LR: 1.20e-06 | Time: 240.0s
+Epoch [60/60] | Loss: 0.3425 | FG OHEM Frac: 0.030 | LR: 1.00e-06 | Time: 242.6s
+--- Running Strict PQ Validation on 20 held-out images ---
+Val PQ: 0.2885 (TP=82, FP=172, FN=80)
+
+Training Complete. Best Validation Strict PQ: 0.2938

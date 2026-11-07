@@ -1,0 +1,19 @@
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> .\py_gpu.bat -m src.unet_diagnostics
+Running Task 7.2 Visual Diagnostics on 10 images using cuda...
+Saved: reports/figures\diag_sample_01_20140122180214Mh.jpeg.png
+Saved: reports/figures\diag_sample_02_20150113105034Ch.jpeg.png
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> .\py_gpu.bat -m src.unet_diagnostics
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> .\py_gpu.bat -m src.unet_(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> .\py_gpu.bat -m src.unet_(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> .\py_gpu.bat -m src.unet_diagnostics
+Running Task 7.2 Visual Diagnostics on 10 images using cuda...
+Saved: reports/figures\diag_sample_01_20140122180214Mh.jpeg.png
+Saved: reports/figures\diag_sample_02_20150113105034Ch.jpeg.png
+Saved: reports/figures\diag_sample_03_20151118172314Mh.jpeg.png
+Saved: reports/figures\diag_sample_04_20171025223130Lh.jpeg.png
+Saved: reports/figures\diag_sample_05_20150125172714Mh.jpeg.png
+Saved: reports/figures\diag_sample_06_20160225173314Mh.jpeg.png
+Saved: reports/figures\diag_sample_07_20150731082034Lh.jpeg.png
+Saved: reports/figures\diag_sample_08_20190926165810Mh.jpeg.png
+Saved: reports/figures\diag_sample_09_20141027224834Lh.jpeg.png
+Saved: reports/figures\diag_sample_10_20140312081114Th.jpeg.png
+Visual diagnostics complete!
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> 

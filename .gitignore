@@ -12,9 +12,8 @@ models/*
 submissions/*
 !submissions/submission_cldice_th050.csv
 
-# Python / Environment / Caches / Logs
+# Python / Environment / Caches
 __pycache__/
 *.py[cod]
 *$py.class
 .ipynb_checkpoints/
-*.log

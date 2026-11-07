@@ -1,0 +1,25 @@
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> .\py_gpu.bat -m src.check_sameday_duplicates
+============================================================
+=== TASK: SAME-DAY DUPLICATE & SSIM LEAKAGE CHECK ===
+============================================================
+Total Train Images : 1039
+Total Val Images   : 115
+Found 93 validation images with a 0-day gap to their nearest training image (out of 115 total val images).
+Computing SSIM: 100%|████████████████████████████████████████████████████████████| 93/93 [01:27<00:00,  1.07it/s]
+
+============================================================
+TASK SUMMARY & DECISION:
+============================================================
+Total Validation Images Evaluated : 115
+Pairs with 0-Day Gap Checked      : 93
+Mean SSIM Across All Pairs        : 0.9136
+------------------------------------------------------------
+1. SSIM > 0.95 (Near-Duplicate)   : 74 (64.3% of val set)
+2. SSIM 0.80-0.95 (Marginal)      : 0 (0.0% of val set)
+3. SSIM < 0.80 (Clearly Different): 19 (16.5% of val set)
+------------------------------------------------------------
+Decision: Significant Leakage: 64.3% near-duplicates (> 30%). STOP and report to human before TTA.
+============================================================
+
+Report written to: reports/stage0_5_sameday_duplicates.md
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> 

@@ -1,0 +1,30 @@
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> .\py_gpu.bat -m src.unet_sweep
+=== TASK 8: HYPERPARAMETER VALIDATION SWEEP (GPU: cuda) ===
+
+[Sweep 1/5] Score Thresholds:
+  Thresh 0.40 -> PQ: 0.2787 | TP: 81 | FP: 176 | FN: 81
+  Thresh 0.45 -> PQ: 0.2888 | TP: 82 | FP: 172 | FN: 80
+  Thresh 0.50 -> PQ: 0.2938 | TP: 81 | FP: 164 | FN: 81
+  Thresh 0.55 -> PQ: 0.2961 | TP: 81 | FP: 160 | FN: 81
+  Thresh 0.60 -> PQ: 0.2885 | TP: 78 | FP: 160 | FN: 84
+
+[Sweep 2/5] Peak Min Distance:
+  Peak Dist 15 -> PQ: 0.2433 | TP: 74 | FP: 218 | FN: 88
+  Peak Dist 20 -> PQ: 0.2938 | TP: 81 | FP: 164 | FN: 81
+  Peak Dist 25 -> PQ: 0.3279 | TP: 88 | FP: 128 | FN: 74
+  Peak Dist 30 -> PQ: 0.3466 | TP: 91 | FP: 114 | FN: 71
+
+[Sweep 3/5] Morphological Kernel Size:
+  Kernel 3 -> PQ: 0.2911 | TP: 82 | FP: 163 | FN: 80
+  Kernel 5 -> PQ: 0.2938 | TP: 81 | FP: 164 | FN: 81
+  Kernel 7 -> PQ: 0.2871 | TP: 77 | FP: 152 | FN: 85
+
+[Sweep 4/5] Distance Transform:
+  Transform DIST_L1 -> PQ: 0.2589 | TP: 76 | FP: 187 | FN: 86
+  Transform DIST_L2 -> PQ: 0.2938 | TP: 81 | FP: 164 | FN: 81
+
+[Sweep 5/5] Skeleton Prune Threshold:
+  Prune 5 -> PQ: 0.2885 | TP: 80 | FP: 167 | FN: 82
+  Prune 10 -> PQ: 0.2938 | TP: 81 | FP: 164 | FN: 81
+  Prune 15 -> PQ: 0.2972 | TP: 82 | FP: 157 | FN: 80
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> 

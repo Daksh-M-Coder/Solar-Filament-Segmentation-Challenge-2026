@@ -1,0 +1,38 @@
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> .\py_gpu.bat -m src.stage1_inference --tta --score_thresh 0.45
+============================================================
+=== STAGE 1: INFERENCE PIPELINE (TTA: True) ===
+============================================================
+Device: cuda | Weights: models/unet_best.pth
+Score Threshold: 0.45 | TTA: True
+Production Post-Processing: peak=55, prune=15, kernel=3, dt=DIST_L1
+Found 180 test images.
+Target Output CSV: submissions\submission_unet_stage1_TTA_th0.45.csv
+
+Inference (TTA, th=0.45): 100%|████████████████████████████████████████████████| 180/180 [16:12<00:00,  5.40s/it] 
+
+Saved Submission: submissions\submission_unet_stage1_TTA_th0.45.csv
+  Total Rows / Instances : 1566
+  Images with Filaments  : 178 / 180
+  Unstable Tiles (> 10% view variance): 0 / 4500 (0.00%)
+Verifying overlap integrity of submissions\submission_unet_stage1_TTA_th0.45.csv...
+SUCCESS: Zero overlapping masks across all 178 images in submissions\submission_unet_stage1_TTA_th0.45.csv!
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> .\py_gpu.bat -m src.stage1_inference --tta --score_thresh 0.50
+>>
+============================================================
+=== STAGE 1: INFERENCE PIPELINE (TTA: True) ===
+============================================================
+Device: cuda | Weights: models/unet_best.pth
+Score Threshold: 0.5 | TTA: True
+Production Post-Processing: peak=55, prune=15, kernel=3, dt=DIST_L1
+Found 180 test images.
+Target Output CSV: submissions\submission_unet_stage1_TTA_th0.50.csv
+
+Inference (TTA, th=0.50): 100%|████████████████████████████████████████████████| 180/180 [15:54<00:00,  5.30s/it] 
+
+Saved Submission: submissions\submission_unet_stage1_TTA_th0.50.csv
+  Total Rows / Instances : 1555
+  Images with Filaments  : 178 / 180
+  Unstable Tiles (> 10% view variance): 0 / 4500 (0.00%)
+Verifying overlap integrity of submissions\submission_unet_stage1_TTA_th0.50.csv...
+SUCCESS: Zero overlapping masks across all 178 images in submissions\submission_unet_stage1_TTA_th0.50.csv!
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> 

@@ -1,0 +1,25 @@
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> .\py_gpu.bat -m src.audit2_temporal
+============================================================
+=== AUDIT 2: TEMPORAL LEAKAGE & TEMPORAL SPLIT CHECK ===
+============================================================
+Train Date Range : 2011-01-09 to 2022-08-03 (1039 images)
+Val Date Range   : 2011-01-28 to 2021-12-31 (115 images)
+
+Temporal Proximity Check:
+  Median Time Gap to Nearest Train Image : 0.0 days
+  Min Time Gap to Nearest Train Image    : 0.0 days
+  75th Percentile Time Gap               : 0.5 days
+
+------------------------------------------------------------
+TASK 2.3: TEMPORAL SPLIT EVALUATION (Year >= 2020)
+------------------------------------------------------------
+Total Pre-2020 Images  : 1079
+Total 2020+ Images     : 75
+Post-2020 Validation Images: 9
+Evaluating locked production config on 75 post-2020 images...
+Evaluating 2020+ images:  96%|███████████████████████████████████████████████████████▋  | 72/75 [02:25<00:04,  1.4Evaluating 2020+ images:  97%|████████████████████████████████████████████████████████▍ | 73/75 [02:27<00:03,  1.5Evaluating 2020+ images:  99%|█████████████████████████████████████████████████████████▏| 74/75 [02:29<00:01,  1.7Evaluating 2020+ images: 100%|██████████████████████████████████████████████████████████| 75/75 [02:31<00:00,  1.7Evaluating 2020+ images: 100%|██████████████████████████████████████████████████████████| 75/75 [02:31<00:00,  2.02s/it]
+
+Temporal Split Results (Post-2020 Images):
+  Strict PQ : 0.3395 (TP=149, FP=125, FN=126)
+Audit 2 report written to: reports/stage0_5_audit2_temporal.md
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> 

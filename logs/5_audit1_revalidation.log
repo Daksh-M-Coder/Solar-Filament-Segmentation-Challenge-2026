@@ -1,0 +1,20 @@
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> .\py_gpu.bat -m src.audit1_revalidation
+============================================================
+=== AUDIT 1: RE-VALIDATION ON FULL 115 HELD-OUT POOL ===
+============================================================
+Locked Production Config: peak=55, prune=15, score=0.45, kernel=3, dt=DIST_L1
+Device: cuda | Model: models/unet_best.pth
+Total Validation Images: 115 (Original 20-image subset: 20, Unseen held-out: 95)
+Auditing 115 val images: 100%|████████████████████████████████████████████████████████| 115/115 [06:56<00:00,  3.62s/it]
+
+============================================================
+AUDIT 1 SUMMARY RESULTS:
+  Full 115 Images Strict PQ      : 0.3816 (TP=477, FP=379, FN=292)
+  Original 20 Images Strict PQ   : 0.4162 (TP=107, FP=75, FN=55)
+  Unseen 95 Images Strict PQ     : 0.3743 (TP=370, FP=304, FN=237)
+  Precision: 0.5572 | Recall: 0.6203
+  PQ Percentiles: 25th=0.3016, Median=0.3948, 75th=0.4840
+  Mean Instances per Image: 7.44
+============================================================
+Audit 1 report written to: reports/stage0_5_audit1_revalidation.md
+(base) PS C:\Users\daksh\Programmer\Learning\COMP TECH SKILL\Kaggle Projects\01 Solar Filament> 
