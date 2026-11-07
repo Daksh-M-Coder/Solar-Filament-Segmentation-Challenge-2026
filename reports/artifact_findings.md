@@ -1,0 +1,24 @@
+# Artifact Inspection Findings
+
+- Sampled images: 25
+- Seams / repeat discontinuity count (> 3 images): 636
+  - row_1024_col_1926: seen in 24 images
+  - col_1024_row_121: seen in 23 images
+  - row_512_col_1922: seen in 22 images
+  - row_1024_col_120: seen in 22 images
+  - row_1536_col_123: seen in 22 images
+  - col_1024_row_122: seen in 22 images
+  - col_1024_row_1923: seen in 22 images
+  - row_1024_col_119: seen in 21 images
+  - row_1024_col_121: seen in 21 images
+  - row_1024_col_122: seen in 21 images
+  - row_1024_col_2043: seen in 21 images
+  - col_1024_row_1927: seen in 21 images
+  - col_1536_row_281: seen in 21 images
+  - row_1024_col_1925: seen in 20 images
+  - col_1024_row_123: seen in 20 images
+  - col_1536_row_124: seen in 20 images
+  - col_1536_row_1768: seen in 20 images
+  - col_1536_row_1769: seen in 20 images
+  - col_1536_row_280: seen in 20 images
+  - row_512_col_282: seen in 19 images

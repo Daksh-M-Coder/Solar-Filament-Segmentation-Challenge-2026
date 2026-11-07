@@ -1,0 +1,21 @@
+{
+  "unet_pq": 0.39671897828112396,
+  "ensemble_pq": 0.39933103951760696,
+  "delta": 0.0026120612364829987,
+  "gated_added": 54,
+  "gating": {
+    "score_thresh": 0.75,
+    "iou_gate": 0.1
+  },
+  "verdict": "NO IMPROVEMENT (delta=+0.0026 < 0.005). Stage 2 DEAD. Keep U-Net-only submission.",
+  "unet_stats": {
+    "tp": 485,
+    "fp": 385,
+    "fn": 284
+  },
+  "ensemble_stats": {
+    "tp": 497,
+    "fp": 411,
+    "fn": 272
+  }
+}
