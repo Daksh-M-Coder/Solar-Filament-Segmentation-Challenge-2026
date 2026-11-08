@@ -56,7 +56,7 @@
 %              INTRODUCTION            %
 % ==================================== %
 \section{Introduction}
-    This report goes over the details of our submitted solution to the Solar Filament Segmentation Challenge~2026 \cite{filament-segmentation-2026}. The challenge, launched on July~10,~2026, is organized by the Earth-Space AI Research (ESAIR) Lab\footnote{\href{https://www.esairlab.com/home}{www.esairlab.com/}}. This challenge utilizes the MAGFiLO dataset for evaluation of the segmentation algorithms \cite{ahmadzadeh2024dataset}. The task requires instance segmentation of solar filaments in $2048\times2048$ H-$\alpha$ full-disk solar images evaluated by strict Panoptic Quality (PQ) under bipartite matching at $\text{IoU}>0.5$. All experiments were conducted under strict local hardware constraints: a single 6~GB RTX 3050 Laptop GPU, using exclusively the MAGFiLO training images with no external data or external compute. This paper contributes an audited U-Net pipeline, a controlled evaluation of several improvement directions (topology-aware loss, post-processing recalibration, TTA aggregation strategy, and Mask R-CNN ensembling), and a quantified bound on achievable performance under the 512-crop training regime. Under these constraints, the dominant performance limiter is the training crop size, not any of the model-side or post-processing levers we tested.
+    This report describes our submitted solution to the Solar Filament Segmentation Challenge~2026 \cite{filament-segmentation-2026}. The challenge, launched on July~10,~2026, is organized by the Earth-Space AI Research (ESAIR) Lab\footnote{\href{https://www.esairlab.com/home}{www.esairlab.com/}}. This challenge utilizes the MAGFiLO dataset for evaluation of the segmentation algorithms \cite{ahmadzadeh2024dataset}. The task requires instance segmentation of solar filaments in $2048\times2048$ H-$\alpha$ full-disk solar images evaluated by strict Panoptic Quality (PQ) under bipartite matching at $\text{IoU}>0.5$. All experiments were conducted under strict local hardware constraints: a single 6~GB RTX 3050 Laptop GPU, using exclusively the MAGFiLO training images with no external data or external compute. This paper contributes an audited U-Net pipeline, a controlled evaluation of several improvement directions (topology-aware loss, post-processing recalibration, TTA aggregation strategy, and Mask R-CNN ensembling), and a quantified bound on achievable performance under the 512-crop training regime. Under these constraints, the dominant performance limiter is the training crop size, not any of the model-side or post-processing levers we tested.
 
 % ==================================== %
 %              METHODOLOGY             %
@@ -91,7 +91,7 @@ Training is carried out using AdamW with discriminative learning rates ($1\times
 \end{figure*}
 
 \subsection{Inference and Post-Processing}\label{sec:inference}
-Inference operates on full $2048\times2048$ images using a sliding window of $512\times512$ with stride 448 (64-pixel overlap). Each tile undergoes four-fold flip test-time augmentation (identity, horizontal, vertical, and both flips). Crucially, raw probability maps are averaged across all four augmented orientations prior to any thresholding or binarization. This probability-averaging protocol retains continuous soft confidence signals, yielding a +0.0111 local PQ gain over discrete mask-voting schemes. For overlapping tile seams, per-tile binarized predictions are accumulated and merged using spatial majority voting (requiring $\ge 50\%$ agreement across overlapping tiles).
+Inference operates on full $2048\times2048$ images using a sliding window of $512\times512$ with stride 448 (64-pixel overlap). Each tile undergoes four-fold flip test-time augmentation (identity, horizontal, vertical, and both flips). Raw probability maps are averaged across all four augmented orientations prior to any thresholding or binarization. This probability-averaging protocol retains continuous soft confidence signals, yielding a +0.0111 local PQ gain over discrete mask-voting schemes. For overlapping tile seams, per-tile binarized predictions are accumulated and merged using spatial majority voting (requiring $\ge 50\%$ agreement across overlapping tiles).
 
 The global post-processing pipeline executes sequentially:
 \begin{enumerate}
@@ -175,7 +175,7 @@ $0.45 < \text{IoU} \le 0.50$ & 28 & 7.7\% & 1700 px & Boundary near-misses \\
 \end{tabular}
 \end{table}
 
-The breakdown reveals that 74.5\% of false positives possess $\text{IoU}\le0.30$, with 43.9\% showing complete zero overlap ($\text{IoU}=0$). This demonstrates that false alarms are predominantly detection hallucinations (predicting quiet chromospheric absorption structures as filaments) rather than mask boundary errors. The oversegmentation bucket (17.8\%, mean area 1891 px) originates from watershed splits across complex geometries. Crucially, near-misses ($0.45<\text{IoU}\le0.50$) account for only 7.7\% of false positives. Because topology-aware losses primarily refine boundary connectivity on near-misses, their theoretical ceiling on overall PQ is constrained by the small fraction of instances in this bucket.
+The decomposition shows that 74.5\% of false positives possess $\text{IoU}\le0.30$, with 43.9\% showing complete zero overlap ($\text{IoU}=0$), indicating that false alarms are predominantly detection hallucinations (predicting quiet chromospheric absorption structures as filaments) rather than mask boundary errors. The oversegmentation bucket (17.8\%, mean area 1891 px) originates from watershed splits across complex geometries. In contrast, near-misses ($0.45<\text{IoU}\le0.50$) account for only 7.7\% of false positives. clDice can only improve PQ by targeting the 7.7\% of FPs in the near-miss bucket; it cannot address the 74.5\% that are detection hallucinations.
 
 \subsection{Parameter Sensitivity}
 Post-processing parameter sweeps on the held-out validation set established that:
@@ -188,7 +188,7 @@ Post-processing parameter sweeps on the held-out validation set established that
 \end{itemize}
 
 \subsection{Negative Results}\label{sec:negative_results}
-Documenting unsuccessful interventions provides critical insight into the structural limits of the problem:
+We report four unsuccessful interventions that were informative for subsequent design decisions:
 \begin{itemize}
     \item \textbf{Mask R-CNN Ensemble:} A complementary error audit identified 54 filaments detected by Mask R-CNN that U-Net missed. However, when fused via confidence gating at thresholds 0.85 and 0.75, only 1 in 4 introduced detections constituted a valid true positive, while the rest added false alarms. Net PQ gain was negligible (+0.0009 and +0.0026), leading to abandonment.
     \item \textbf{Mask-Voting TTA:} Averaging discrete binary predictions across flip augmentations degraded performance by 0.0111 PQ compared to pre-threshold probability averaging.
@@ -197,7 +197,7 @@ Documenting unsuccessful interventions provides critical insight into the struct
 \end{itemize}
 
 \subsection{Strengths and Limitations}
-Key strengths include a deterministic, leakage-audited validation protocol, pre-threshold probability-averaged TTA, and isolated ablation testing. 
+The approach has three strengths: a deterministic, leakage-audited validation protocol, pre-threshold probability-averaged TTA, and isolated ablation testing. 
 
 Primary limitations remain:
 \begin{enumerate}
